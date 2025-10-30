@@ -4,7 +4,12 @@ import HeaderComponent from '../HeaderComponent/HeaderComponent'
 import FooterComponent from '../FooterComponent/FooterComponent'
 
 
+
+
 const MainComponent = () => {
+
+  const{isLoggedIn, setIsLoggedIn} = useContext(AuthContext)
+
   return (
     <>
         {/* <HeaderComponent /> */}

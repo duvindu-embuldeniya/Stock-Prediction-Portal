@@ -36,7 +36,6 @@ const RegisterComponent = () => {
     }
     catch(error){
         setErrors(error.response.data)
-        console.error(error.response.data)
     }
     finally{
         setLoading(false)
@@ -54,21 +53,21 @@ const RegisterComponent = () => {
                 <form onSubmit={handleRegistration}>
                     
                     <div className=' mb-3'>
-                        <input type="text" onChange={f1} value={username} className='form-control' placeholder='Username'/>
+                        <input type="text" required onChange={f1} value={username} className='form-control' placeholder='Username'/>
                         <small>
                             {errors.username && <div className='text-danger'>{errors.username}</div>}
                         </small>
                     </div>
 
                     <div className=' mb-3'>
-                        <input type="email" onChange={f2} value={email} className='form-control' placeholder='Email address'/>
+                        <input type="email" required onChange={f2} value={email} className='form-control' placeholder='Email address'/>
                         <small>
                             {errors.email && <div className='text-danger'>{errors.email}</div>}
                         </small>
                     </div>
 
                     <div className=' mb-3'>
-                        <input type="password" onChange={f3} value={password} className='form-control' placeholder='Password'/>
+                        <input type="password" required onChange={f3} value={password} className='form-control' placeholder='Password'/>
                         <small>
                             {errors.password && <div className='text-danger'>{errors.password}</div>}
                         </small>

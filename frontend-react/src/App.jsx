@@ -5,24 +5,27 @@ import FooterComponent from './components/FooterComponent/FooterComponent'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import RegisterComponent from './components/RegisterComponent/RegisterComponent';
 import LoginComponent from './components/LoginComponent/LoginComponent';
+import AuthContextComponent from './components/AuthContextComponent/AuthContextComponent';
 
 function App() {
 
   return (
     <>
-      <BrowserRouter >
-       <HeaderComponent />
-        <Routes>
+      <AuthContextComponent>
+        <BrowserRouter >
+        <HeaderComponent />
+          <Routes>
 
-            <Route path='/' element={<MainComponent />} />
+              <Route path='/' element={<MainComponent />} />
 
-            <Route path='/register' element={<RegisterComponent />} />
+              <Route path='/register' element={<RegisterComponent />} />
 
-            <Route path='/login' element={<LoginComponent />} />
+              <Route path='/login' element={<LoginComponent />} />
 
-        </Routes>
-       <FooterComponent />
-      </BrowserRouter>
+          </Routes>
+        <FooterComponent />
+        </BrowserRouter>
+      </AuthContextComponent>
     </>
   )
 }

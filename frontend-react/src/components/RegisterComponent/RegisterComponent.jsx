@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const RegisterComponent = () => {
 
@@ -10,6 +11,8 @@ const RegisterComponent = () => {
   const[errors, setErrors] = useState({})
   const[success, setSuccess] = useState(false)
   const[loading, setLoading] = useState(false)
+
+  const navigate = useNavigate()
 
   let f1 = (e) => {
     setUsername(e.target.value)
@@ -33,6 +36,10 @@ const RegisterComponent = () => {
         const response = await axios.post('http://localhost:8000/api/v1/register/', userData)
         setErrors({})
         setSuccess(true)
+        // navigate('/')
+        setUsername('')
+        setEmail('')
+        setPassword('')
     }
     catch(error){
         setErrors(error.response.data)
@@ -72,7 +79,7 @@ const RegisterComponent = () => {
                             {errors.password && <div className='text-danger'>{errors.password}</div>}
                         </small>
                     </div>
-                    {success && <div style={{textAlign:'center'}} className='alert alert-success'>Registration Successful</div>}
+                    {success && <div style={{textAlign:'center'}} className='alert alert-success'>Registration Success, now login with your details</div>}
 
                     {loading ? (
                         <button disabled type='submit' className='btn btn-info d-block mx-auto'>Please wait..</button>

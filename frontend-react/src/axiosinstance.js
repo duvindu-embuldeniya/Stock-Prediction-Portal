@@ -60,8 +60,8 @@ axiosInstance.interceptors.response.use(
                 return axiosInstance(response)
                 
             }catch(error){ //if refresh token has expired...........
-                localStorage.removeItem('accessToken')
-                localStorage.removeItem('refreshToken')
+                localStorage.removeItem('access')
+                localStorage.removeItem('refresh')
                 
                 window.location.href = '/login'
             }

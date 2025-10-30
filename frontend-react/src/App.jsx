@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import RegisterComponent from './components/RegisterComponent/RegisterComponent';
 import LoginComponent from './components/LoginComponent/LoginComponent';
 import AuthContextComponent from './components/AuthContextComponent/AuthContextComponent';
+import DashboardComponent from './components/DashboardComponent/DashboardComponent';
+
 
 function App() {
 
@@ -21,6 +23,9 @@ function App() {
               <Route path='/register' element={<RegisterComponent />} />
 
               <Route path='/login' element={<LoginComponent />} />
+
+              <Route path='/dashboard' element={<DashboardComponent />} />
+
 
           </Routes>
         <FooterComponent />

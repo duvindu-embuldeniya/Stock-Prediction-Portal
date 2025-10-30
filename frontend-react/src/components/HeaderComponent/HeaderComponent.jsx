@@ -16,7 +16,7 @@ const HeaderComponent = () => {
     localStorage.removeItem('access')
     localStorage.removeItem('refresh')
     setIsLoggedIn(false)
-    navigate('/login')
+    navigate('/')
   }
 
   return (

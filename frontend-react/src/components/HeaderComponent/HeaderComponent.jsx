@@ -29,7 +29,11 @@ const HeaderComponent = () => {
                 
 
                 {isLoggedIn ? (
+                  <>
+                  {/* <ButtonComponent url='/dashboard' text='Dashboard' class='btn-outline-info' /> */}
+                  &nbsp;&nbsp;
                   <button onClick={handleLogout} className='btn btn-danger'>Logout</button>
+                  </>
                 ) : (
                   <>
                   <ButtonComponent url='/login' text='login' class='btn-outline-info'/>

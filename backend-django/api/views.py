@@ -131,7 +131,7 @@ class StockPredictionAPIView(APIView):
             plt.figure(figsize=(12,5))
             plt.plot(y_test, 'b', label='Original Price')
             plt.plot(y_predicted, 'r', label='Predicted Price')
-            plt.title(f'Final Prediction for {ticker}')
+            plt.title(f'Final Prediction for {ticker} using Neural Network(LSTM)')
             plt.xlabel('Days')
             plt.ylabel('Close Price');
             plt.grid()

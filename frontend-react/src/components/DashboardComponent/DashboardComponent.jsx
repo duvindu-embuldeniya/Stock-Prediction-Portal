@@ -17,8 +17,7 @@ const DashboardComponent = () => {
   const[rmse, setRMSE] = useState()
   const[r2, setR2] = useState()
 
-
-
+  
 
   let f1 = (e) => {
     setTicker(e.target.value)
@@ -99,9 +98,9 @@ const DashboardComponent = () => {
                   </small>
 
                   {loading ? (
-                    <button type='submit' disabled className='btn btn-info mt-3'>Generating..</button>
+                    <button type='submit' disabled className='btn btn-info mt-3'>Generating...</button>
                   ) : (
-                    <button type='submit' className='btn btn-info mt-3'>See Prediction</button>
+                    <button type='submit' className='btn btn-info mt-3'>See Predictions</button>
                   )}
               </form>
 
@@ -127,10 +126,10 @@ const DashboardComponent = () => {
                           </div>
 
                           <div className='text-light p3'>
-                            <h4>Model Evaluation</h4>
+                            {/* <h4>Model Evaluation</h4>
                             <p>Mean Squared Error (MSE): {mse}</p>
-                            <p>Root Mean Squared Error (RMSE): {rmse}</p>
-                            <p>R-Squared: {r2}</p>
+                            <p>Root Mean Squared Error (RMSE): {rmse}</p> */}
+                            <h4 style={{textAlign:'center'}}>R-Squared: {r2}</h4>
                           </div>
                         </>
                       ) : (

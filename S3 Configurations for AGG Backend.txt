@@ -1,0 +1,49 @@
+views.py .................................................................................................
+
+import io
+from django.core.files.base import ContentFile
+from django.core.files.storage import default_storage
+
+
+
+# save the plot to a file
+buf = io.BytesIO()
+plt.savefig(buf, format='png')
+plt.close()
+buf.seek(0)
+
+plot_img_path = f'plots/{ticker}_plot.png'  # optional folder in S3
+file_content = ContentFile(buf.read())
+default_storage.save(plot_img_path, file_content)
+
+# Get the public URL
+plot_img_url = default_storage.url(plot_img_path)
+
+return Response({
+    'plot_img':plot_img_url,
+    })
+
+            
+
+
+settings.py ..............................................................................................
+
+AWS_ACCESS_KEY_ID = ''
+AWS_SECRET_ACCESS_KEY = ''
+
+AWS_STORAGE_BUCKET_NAME = ''
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_FILE_OVERWRITE = False
+
+STORAGES = {
+
+    # Media file (image) management   
+    "default": {
+        "BACKEND": "storages.backends.s3boto3.S3Boto3Storage",
+    },
+    
+    # CSS and JS file management
+    "staticfiles": {
+        "BACKEND": "storages.backends.s3boto3.S3StaticStorage",
+    },
+}
